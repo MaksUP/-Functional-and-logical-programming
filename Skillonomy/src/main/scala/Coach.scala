@@ -1,9 +1,10 @@
-class Coach(name: String, surname: String, age: Int, addr: Address, balance:Balance, var сoursePrice: Int, var trainingPeriod: Int, var ID: Int, var listStudents: List[Student])
+class Coach(name: String, surname: String, age: Int, addr: Address, balance:Balance, var сoursePrice: Int, var trainingPeriod: Int, var ID: Int, var currentCourse: Boolean, var listStudents: List[Student])
   extends Human(name, surname, age, addr, balance) with Platform_API with Exchange_API {
 
   private var _сoursePrice: Int = сoursePrice
   private var _trainingPeriod: Int = trainingPeriod
   private var _ID: Int = ID
+  private var _currentCourse: Boolean = currentCourse
   private var _listStudents: List[Student] = listStudents
 
   override def toString(): String = super.toString() + s", ${_сoursePrice}, ${_trainingPeriod}, ${_ID}, ${_listStudents}, ${_listStudents.length}"
@@ -20,6 +21,9 @@ class Coach(name: String, surname: String, age: Int, addr: Address, balance:Bala
 
   def getID: Int = _ID
   def setID(newValue: Int) = {_ID = newValue}
+
+  def CurrentCourse: Boolean = _currentCourse
+  def CurrentCourse(newValue: Boolean) = {_currentCourse = newValue}
 
   def ListStudents: List[Student] = _listStudents
   def ListStudents(newValue: List[Student]) = {_listStudents = newValue}

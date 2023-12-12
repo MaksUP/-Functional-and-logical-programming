@@ -3,13 +3,13 @@ object Exchange {
   private var money: Double = 1_000_000.0
   private var purchasedTokens: Double = 0.0
   private var soldTokens: Double = 0.0
-  private var tokenPrice: Double = money / tokens //purchasedTokens / soldTokens
-
-  if (tokenPrice.isNaN || tokenPrice.isInfinity || tokenPrice == 0) {tokenPrice = 1.0}
+  private var tokenPrice: Double = money / tokens
 
   override def toString(): String = s"${tokens}, ${money}, ${purchasedTokens}, ${soldTokens}, ${tokenPrice}"
-  def printExchange(): String = s"Tokens: ${tokens} \nMoney: ${money} \nPurchased tokens: ${purchasedTokens} " +
-                                s"\nSold tokens: ${soldTokens} \nToken price: ${tokenPrice} \n"
+  def printExchange(): Unit = {
+    println(s"Tokens: ${tokens} \nMoney: ${money} \nPurchased tokens: ${purchasedTokens} " +
+            s"\nSold tokens: ${soldTokens} \nToken price: ${tokenPrice} \n")
+  }
 
   def Tokens: Double = tokens
   def Tokens(newValue: Double) = {
@@ -37,7 +37,7 @@ object Exchange {
 
   def TokenPrice: Double = tokenPrice
   def TokenPrice(newValue: Double) = {
-    if (newValue.isNaN || newValue.isInfinity || newValue == 0) {
+    if (newValue.isNaN || newValue.isInfinity || newValue == 0) {     // перевірка на допустиме значення ціни токену
       tokenPrice = 1.0
     } else if (newValue > 0) {
       tokenPrice = Main.roundNumber(newValue, 5)

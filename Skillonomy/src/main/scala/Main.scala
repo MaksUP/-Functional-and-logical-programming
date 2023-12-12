@@ -7,19 +7,19 @@ object Main {
 //  ----------------------------------------------------|Simulation|----------------------------------------------------
     var years = 3
 
-    println(Console.GREEN + "Simulation started..." + Console.RESET)
+    println(Console.GREEN + "Simulation started..." + Console.RESET + "\n")
 
-    for (year <- 0 to years - 1) {           // цикл по кількості повторень симуляції
+    for (year <- 0 to years - 1) {      // цикл по кількості повторень симуляції (по рокам)
       Simulation.createStudents(office1)
 
       if (year == 0) {
-        Simulation.createCoaches(office1)
+        Simulation.createCoaches(office1)     // створення постійних викладачів
       }
 
       Simulation.formGroups(office1)
       Simulation.startSimulation(office1)
 
-      println(Console.YELLOW + s"\n\n${"*"*19}|Year ${year + 1} has ended|${"*"*19}\n\n" + Console.RESET)
+      println("\n" + Console.YELLOW_B + Console.BLACK + s"${"*" * 18}|Year ${year + 1} has ended|${"*" * 18}" + Console.RESET + "\n")
     }
     println(Console.GREEN + "Simulation finished." + Console.RESET)
   }
@@ -55,7 +55,7 @@ object Main {
       case 10 => if (Simulation.RandomNumber.between(1, 10+1) == 1) true else false
       case 5 => if (Simulation.RandomNumber.between(1, 20+1) == 1) true else false
       case 1 => if (Simulation.RandomNumber.between(1, 100+1) == 1) true else false
-      case _ => println("This chance isn't on the list of possibilities"); false
+      case _ => println("This chance isn't in the list of possible chances"); false
     }
   }
 }

@@ -1,7 +1,7 @@
 class Office {
-  private var officeListStudents: List[Student] = List()
-  private var officeListCoaches: List[Coach] = List()
-  private var officeExpelledStudents: List[Student] = List()
+  private var officeListStudents: List[Student] = List()      // загальний список студентів
+  private var officeListCoaches: List[Coach] = List()       // загальний список викладачів
+  private var officeExpelledStudents: List[Student] = List()      // загальний список відрахованих студентів
 
   // методи списку студентів
   def OfficeListStudents: List[Student] = officeListStudents
@@ -36,7 +36,12 @@ class Office {
   }
 
   def printAllStudents(): Unit = {
-    officeListStudents.foreach(stud => stud.printStudent())
+    if (officeListStudents.length != 0) {
+      officeListStudents.foreach(stud => stud.printStudent())
+    }
+    else {
+      println("None \n")
+    }
   }
 
 
@@ -73,7 +78,12 @@ class Office {
   }
 
   def printAllCoaches(): Unit = {
-    officeListCoaches.foreach(coach => coach.printCoach())
+    if (officeListCoaches.length != 0) {
+      officeListCoaches.foreach(coach => coach.printCoach())
+    }
+    else {
+      println("None \n")
+    }
   }
 
 
@@ -86,6 +96,11 @@ class Office {
   }
 
   def printAllExpelledStudents(): Unit = {
-    officeExpelledStudents.foreach(exStud => exStud.printStudent())
+    if (officeExpelledStudents.length != 0) {
+      officeExpelledStudents.foreach(exStud => exStud.printStudent())
+    }
+    else {
+      println("None \n")
+    }
   }
 }

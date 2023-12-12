@@ -1,9 +1,9 @@
 trait Platform_API {
 
   def payroll(coach: Coach): Double = {
-    var salary: Double = coach.ListStudents.length * coach.CoursePrice
+    var salary: Double = coach.ListStudents.length * coach.CoursePrice      // розрахування зарплати
 
-    coach.Balance.MyTokens(coach.Balance.MyTokens + salary)
+    coach.Balance.MyTokens(coach.Balance.MyTokens + salary)       // видача зарплати
     return salary
   }
 
@@ -12,8 +12,8 @@ trait Platform_API {
     var grade = student.Grades.last
 
     grade match {
-      case 5 => scholarship = 1.1 * coursePrice
-        student.Balance.MyTokens(student.Balance.MyTokens + scholarship)
+      case 5 => scholarship = 1.1 * coursePrice       // розрахування стипендії
+        student.Balance.MyTokens(student.Balance.MyTokens + scholarship)      // видача стипендії
       case 4 => scholarship = 1.0 * coursePrice
         student.Balance.MyTokens(student.Balance.MyTokens + scholarship)
       case 3 => scholarship = 0.9 * coursePrice
